@@ -1,0 +1,60 @@
+﻿<Window x:Class="Interface.Users"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Interface"
+      mc:Ignorable="d"
+      Title="Users" Height="450" Width="800">
+
+    <Grid>
+        <Button Content="Закрить" HorizontalAlignment="Left" Margin="709,390,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="3.104,10.338" Click="Button_Exit_Click"/>
+        <ListView  x:Name="ListView_Users" ItemsSource="{Binding Users}" HorizontalAlignment="Left"  Margin="435,19,0,0" VerticalAlignment="Top" Width="317" IsSynchronizedWithCurrentItem="True" MaxHeight="230" RenderTransformOrigin="1.943,2.503"   >
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuitem1" Header="Показати книги" Click="menuitem_showBooks" />
+                    <MenuItem x:Name="menuitem2" Header="Показати дані користувача" Click="menuitem_showInfo" />
+                    <MenuItem x:Name="menuitem3" Header="Змінити ім'я" Click="menuitem_change_first_name"/>
+                    <MenuItem x:Name="menuitem4" Header="Змінити прізвище" Click="menuitem_change_last_name"/>
+                    <MenuItem x:Name="menuitem5" Header="Змінити акад групу" Click="menuitem_chnge_acad_group"/>
+
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding First_Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="first_name" Click="Btn_Sort_FirstName">Ім'я</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" DisplayMemberBinding="{Binding Last_Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="last_name" Click="Btn_Sort_LastName">Прізвище</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120" DisplayMemberBinding="{Binding Acad_Group}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="acad_group" Click="Btn_Sort_AcadGroup" Width="102">Академ група</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="Add_User" Content="Додати Користувача" HorizontalAlignment="Left" Margin="100,43,0,0" VerticalAlignment="Top" Width="224" Height="38" Click="Button_Add_User"  />
+        <TextBox x:Name="New_First_Name" HorizontalAlignment="Left" Height="22" Margin="59,43,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Visibility="Hidden"/>
+        <TextBox x:Name="New_Last_Name" HorizontalAlignment="Left" Height="23" Margin="59,86,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Visibility="Hidden"/>
+        <TextBox x:Name="New_Acad_Group" HorizontalAlignment="Left" Height="23" Margin="59,134,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="170" Visibility="Hidden"/>
+        <Button x:Name="Add_user_btn" Content="Додати" HorizontalAlignment="Left" Margin="154,193,0,0" VerticalAlignment="Top" Width="75" Click="Button_New_User" Visibility="Hidden"/>
+        <Button x:Name="Btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="59,193,0,0" VerticalAlignment="Top" Width="75" Click="Button_Back_User" Visibility="Hidden"/>
+        <TextBlock x:Name="New_First_Name_Text" HorizontalAlignment="Left" Margin="59,27,0,0" TextWrapping="Wrap" Text="Введіть ім'я:" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock   x:Name="New_Last_Name_Text"  HorizontalAlignment="Left" Margin="60,68,0,0" TextWrapping="Wrap" Text="Введіть прізвище:" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock x:Name="New_Acad_Group_Text" HorizontalAlignment="Left" Margin="60,118,0,0" TextWrapping="Wrap"  Text="Введіть академ групу:" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="User_Delete"  Content="Видалити користувача" HorizontalAlignment="Left" Margin="100,103,0,0" VerticalAlignment="Top" Width="224" Height="54" Click="Btn_User_Delete"/>
+        <TextBlock x:Name="Search_TextBlock" HorizontalAlignment="Left" Margin="100,180,0,0" TextWrapping="Wrap" Text="Пошук по ключовому слову" VerticalAlignment="Top"/>
+        <TextBox x:Name="Search_TextBox" HorizontalAlignment="Left" Height="23" Margin="100,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="Search_Btn" Content="Знайти" HorizontalAlignment="Left" Margin="244,212,0,0" VerticalAlignment="Top" Width="80" Height="23" Click="Click_Search_Btn"/>
+        <Button x:Name="Back_Search_Btn" Content="Повернути список" HorizontalAlignment="Left" Margin="521,390,0,0" VerticalAlignment="Top" Width="120" Click="Click_Back_Search_Btn"  Visibility="Hidden"/>
+    </Grid>
+</Window>

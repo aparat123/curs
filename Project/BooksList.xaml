@@ -1,0 +1,33 @@
+﻿<Window x:Class="Interface.BooksList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Interface"
+        mc:Ignorable="d"
+        Title="BooksList" Height="400" Width="350">
+
+    <Grid>
+        <ListView  x:Name="ListView_BookList" ItemsSource="{Binding}" HorizontalAlignment="Left"   VerticalAlignment="Top" Width="324" Height="312" Margin="10,10,0,0"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Book_Name}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="book_name">Назва</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Book_Author}">
+                        <GridViewColumn.Header>
+                            <GridViewColumnHeader Tag="author_name" Width="168" >Автор</GridViewColumnHeader>
+                        </GridViewColumn.Header>
+                    </GridViewColumn>
+
+
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btn_back" Content="Назад" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Height="33" Width="80"/>
+        <Button x:Name="btn_return_book" Content="Повернути" Margin="204,327,10,10.4" Click="btn_return_book_Click" />
+    </Grid>
+</Window>
