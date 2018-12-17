@@ -9,6 +9,8 @@ namespace Logic
     [Serializable]
     public class Book
     {
+        public event EventHandler Event;
+
         public string Book_Name { get; set; }
         public string Book_Author { get; set; }
         public List<User> users { get; set; }

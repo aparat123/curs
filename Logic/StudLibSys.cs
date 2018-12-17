@@ -51,11 +51,8 @@ namespace Logic
         }
         public void Serialize_System()
         {
-           // BinarySerialization.Deserialize();
             BinarySerialization.Serialize(this);
-            
         }
-        
 
         public void Change_User(User user, string new_string, int option)
         {
@@ -97,8 +94,17 @@ namespace Logic
                     users.Add(user);
                 }
             }
-            return users;
+            if (users.Count != 0)
+            {
+                return users;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
+        
         public List<Book> Search_Book_by_word(string str)
         {
             List<Book> books = new List<Book>();
@@ -113,7 +119,14 @@ namespace Logic
                     books.Add(book);
                 }
             }
-            return books;
+            if (books.Count != 0)
+            {
+                return books;
+            }
+            else
+            {
+                return null;
+            }
         }
         public void Change_Book(Book book, string new_string, int option)
         {
